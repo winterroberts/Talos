@@ -1,0 +1,15 @@
+{
+    "makefile.configureOnOpen": false,
+    "gopls": {
+        "build.buildFlags": ["-tags=tinygo"],
+        "build.env": {
+            "GOOS": "linux",
+            "GOARCH": "arm",
+            "CGO_ENABLED": "1"
+        },
+        "directoryFilters": [
+            "-hardware/interrupt"
+        ]
+    },
+    "go.useLanguageServer": true
+}
