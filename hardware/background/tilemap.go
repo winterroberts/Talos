@@ -14,6 +14,8 @@ const (
 	palette_bits  uint16 = 0xF
 )
 
+// Specifies a tile and on the screen, including it's Palette and any
+// horizontal/vertical transformation.
 type TileMapEntry uint16
 
 func NewTileMapEntry(tile uint16, hflip, vflip bool, pallete uint8) TileMapEntry {
@@ -34,18 +36,19 @@ const (
 	SCREEN_BASE_BLOCK_SIZE = 0x800
 )
 
-// Get screen base address
+// Get screen base address.
 func getScreenBaseAddr(screenBase display.SCREEN_BASE) uint32 {
 	return uint32(mem.VRAM_START) + uint32(screenBase)*SCREEN_BASE_BLOCK_SIZE
 }
 
-// Set a single tilemap entry
+// SetTileMapEntry set's a single TileMapEntry at the given by-8 offsets from
+// a screen base block.
 func SetTileMapEntry(screenBase display.SCREEN_BASE, x, y uint8, entry TileMapEntry) {
 	addr := getScreenBaseAddr(screenBase) + uint32(y)*32*2 + uint32(x)*2
 	mem.Write16(addr, uint16(entry))
 }
 
-// Fill entire tilemap with one tile
+// FillTileMap fills the given screen base block to a single tile map entry.
 func FillTileMap(screenBase display.SCREEN_BASE, entry TileMapEntry) {
 	addr := getScreenBaseAddr(screenBase)
 	for i := uint32(0); i < 32*32; i++ {
@@ -53,7 +56,8 @@ func FillTileMap(screenBase display.SCREEN_BASE, entry TileMapEntry) {
 	}
 }
 
-// Load a tilemap (32x32 entries = 2KB)
+// LoadTileMap loads 32x32 TileMapEntrys at the given screen base, specifying
+// the TileMapEntry at every point in the screen base block.
 func LoadTileMap(screenBase display.SCREEN_BASE, entries [32][32]TileMapEntry) {
 	addr := getScreenBaseAddr(screenBase)
 	for y := uint8(0); y < 32; y++ {

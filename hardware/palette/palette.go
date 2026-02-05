@@ -32,14 +32,17 @@ func RGB(r, g, b uint8) Color {
 			((uint16(b) & intensity_max) << blue_offset))
 }
 
+// SetBGColor sets the color of a background palette index
 func SetBGColor(idx uint8, color Color) {
 	mem.Write16(uint32(mem.PALETTE_BG_START)+uint32(idx)*2, uint16(color))
 }
 
+// SetOBJColor sets the color of an object palette index
 func SetOBJColor(idx uint8, color Color) {
 	mem.Write16(uint32(mem.PALETTE_OBJ_START)+uint32(idx)*2, uint16(color))
 }
 
+// SetBGPalette16 sets the colors for a background palette
 func SetBGPalette16(pidx uint8, colors [16]Color) {
 	if pidx < 16 {
 		idx := uint8(pidx) * 16
@@ -49,6 +52,7 @@ func SetBGPalette16(pidx uint8, colors [16]Color) {
 	}
 }
 
+// SetOBJPalette16 sets the colors for a background palette
 func SetOBJPalette16(pidx uint8, colors [16]Color) {
 	if pidx < 16 {
 		idx := uint8(pidx) * 16
@@ -58,6 +62,8 @@ func SetOBJPalette16(pidx uint8, colors [16]Color) {
 	}
 }
 
+// SetBackdropColor sets the default color for any pixels not occupied by
+// background or object VRAM
 func SetBackdropColor(color Color) {
 	SetBGColor(0, color)
 }
