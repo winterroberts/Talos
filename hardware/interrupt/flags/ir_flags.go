@@ -1,0 +1,20 @@
+package flags
+
+type INTERRUPT_flag uint16
+
+const (
+	IR_VBLANK   INTERRUPT_flag = 0
+	IR_HBLANK   INTERRUPT_flag = 1
+	IR_VCOUNTER INTERRUPT_flag = 2
+	IR_TIMER0   INTERRUPT_flag = 3
+	IR_TIMER1   INTERRUPT_flag = 4
+	IR_TIMER2   INTERRUPT_flag = 5
+	IR_TIMER3   INTERRUPT_flag = 6
+	IR_SERIAL   INTERRUPT_flag = 7
+	IR_DMA0     INTERRUPT_flag = 8
+	IR_DMA1     INTERRUPT_flag = 9
+	IR_DMA2     INTERRUPT_flag = 10
+	IR_DMA3     INTERRUPT_flag = 11
+	IR_KEYPAD   INTERRUPT_flag = 12
+	IR_GAMEPAK  INTERRUPT_flag = 13
+)
