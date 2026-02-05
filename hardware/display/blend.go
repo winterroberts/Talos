@@ -5,6 +5,7 @@ const (
 	bld_effect_bits   uint16 = 0b11 << bld_effect_offset
 )
 
+// Specifies blending effect flags
 type BLD_EFFECT uint8
 
 const (

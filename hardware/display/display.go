@@ -5,7 +5,7 @@ import (
 	reg "talos/hardware/register"
 )
 
-// DISPCNT
+// SetMode set's the display mode the Gameboy will use for rendering.
 func SetMode(m Mode) {
 	reg.DISPCNT.ClearBits(mode_bits)
 	reg.DISPCNT.Set(uint16(m))

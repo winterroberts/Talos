@@ -61,26 +61,32 @@ const (
 	SRAM_END   Addr = 64*KB + SRAM_START - 1
 )
 
+// Offset gets an offset from a base address
 func (a Addr) Offset(o uint32) uint32 {
 	return uint32(a) + o
 }
 
+// Read16 reads a uint16 from a memory address
 func Read16(addr uint32) uint16 {
 	return *(*uint16)(unsafe.Pointer(uintptr(addr)))
 }
 
+// Write16b writes a uint16 to a memory address
 func Write16(addr uint32, value uint16) {
 	*(*uint16)(unsafe.Pointer(uintptr(addr))) = value
 }
 
+// Read32 reads a uint32 from a memory address
 func Read32(addr uint32) uint32 {
 	return *(*uint32)(unsafe.Pointer(uintptr(addr)))
 }
 
+// Write32 writes a uint32 to a memory address
 func Write32(addr uint32, value uint32) {
 	*(*uint32)(unsafe.Pointer(uintptr(addr))) = value
 }
 
+// Write8 writes a uint8 to a memory address
 func Write8(addr uint32, value uint8) {
 	*(*uint8)(unsafe.Pointer(uintptr(addr))) = value
 }

@@ -1,5 +1,6 @@
 package flags
 
+// Specifies color effect blending for background, obj, and backdrop
 type BLDCNT_flag uint16
 
 const (

@@ -1,5 +1,6 @@
 package display
 
+// Specifies rendering display mode
 type Mode uint8
 
 const (

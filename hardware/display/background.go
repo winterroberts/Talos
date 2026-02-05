@@ -12,6 +12,7 @@ const (
 	screen_size_bits uint16 = 0b11 << screen_size_offset
 )
 
+// Specifies priority of rendering a background layer
 type BG_PRIORITY uint8
 
 const (
@@ -21,6 +22,7 @@ const (
 	BG_PRIORITY_LOWEST  BG_PRIORITY = 3
 )
 
+// Specifies a section of VRAM to be used for tiles
 type CHAR_BASE uint8
 
 const (
@@ -30,6 +32,7 @@ const (
 	CHAR_BASE_64K CHAR_BASE = 4
 )
 
+// Specifies a section of VRAM to be used for tilemaps
 type SCREEN_BASE uint8
 
 const (
@@ -67,6 +70,7 @@ const (
 	SCREEN_BASE_64K SCREEN_BASE = 31
 )
 
+// Specifies a screen size with support for either text or rotation/scale
 type SCREEN_SIZE uint8
 
 const (

@@ -1,5 +1,7 @@
 package flags
 
+// Specifies ket input flags
+// inputs are default high so 1=released, 0=pressed
 type KEYINPUT_flag uint16
 
 const (
